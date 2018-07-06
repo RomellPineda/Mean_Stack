@@ -1,0 +1,8 @@
+<html>
+<body>
+    <h2>Here are all the cars:</h2>
+    <% for (var x in cars) { %>
+        <a href="<%= cars[x].photo %>/info"><img src="<%=cars[x].photo%>"></a>
+    <% } %>
+</body>
+</html>

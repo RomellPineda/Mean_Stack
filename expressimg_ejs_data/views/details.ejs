@@ -1,0 +1,12 @@
+<html>
+<body>
+    <h1>Details Page for <%=info[0].name%></h1>
+    <img src="<%=info[0].photo%>">
+    <h2>Favorite food: <%=info[0].food%></h2>
+    <h2>Age: <%=info[0].age%></h2>
+    <h2>Sleeping spots: <% for (var x in info[0].sleeps) { %>
+    <h2><%=info[0].sleeps[x]%></h2>
+    <% } %>
+    </h2>
+</body>
+</html>
