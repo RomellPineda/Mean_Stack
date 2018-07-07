@@ -2,7 +2,7 @@
 var express = require("express");
 // invoke express and store the result in the variable app
 var app = express();
-// use app's get method and pass it the base route '/' and a callback
+// use app's get method and pass it the base route "/" and a callback
 app.get('/', function(request, response) {
     // just for fun, take a look at the request and response objects
    console.log("The request object", request);
@@ -16,9 +16,9 @@ app.use(express.static(__dirname + "/static"));
 // two underscores before dirname
 // try printing out __dirname using console.log to see what it is and why we use it
 // This sets the location where express will look for the ejs views
-app.set('views', __dirname + '/views'); 
+app.set("views", __dirname + "/views"); 
 // Now lets set the view engine itself so that express knows that we are using ejs as opposed to another templating engine like jade
-app.set('view engine', 'ejs');
+app.set("view engine", "ejs");
 // app.get("/cars", function (request, response){
 //     var these_cars = [
 //         {photo: "/images/car1.jpg"}, 
@@ -27,7 +27,7 @@ app.set('view engine', 'ejs');
 //         {photo: "/images/car4.jpg"}, 
 //     ];
 //     console.log(these_cars.photo);
-//     response.render('cars', {cars: these_cars});
+//     response.render("cars", {cars: these_cars});
 // })
 app.get("/cats", function (request, response){
     var these_cats = [
@@ -36,7 +36,7 @@ app.get("/cats", function (request, response){
         {photo: "/images/cat3.jpeg"}, 
         {photo: "/images/cat4.jpg"}, 
     ];
-    response.render('cats', {cats: these_cats});
+    response.render("cats", {cats: these_cats});
 })
 
 // INFO INFO INFO
@@ -45,28 +45,28 @@ app.get("/images/cat1.png/info", function (request, response){
         {photo: "/images/cat1.png", name: "Tigger", food: "honey", age: "?", sleeps: ["anywhere"]}
     ];
     console.log(info);
-    response.render('details', {info: info});
+    response.render("details", {info: info});
 })
 app.get("/images/cat2.jpg/info", function (request, response){
     var info = [
         {photo: "/images/cat2.jpg", name: "Nia", food: "gazelles", age: "3", sleeps: ["ground", "trees"]}
     ];
     console.log(info);
-    response.render('details', {info: info});
+    response.render("details", {info: info});
 })
 app.get("/images/cat3.jpeg/info", function (request, response){
     var info = [
         {photo: "/images/cat3.jpeg", name: "Bob", food: "gazelles", age: "5", sleeps: ["ground", "trees",]}
     ];
     console.log(info);
-    response.render('details', {info: info});
+    response.render("details", {info: info});
 })
 app.get("/images/cat4.jpg/info", function (request, response){
     var info = [
         {photo: "/images/cat4.jpg", name: "Katt", food: "tacos", age: "46", sleeps: ["bed", "couch", "ground", "trees"]}
     ];
     console.log(info);
-    response.render('details', {info: info});
+    response.render("details", {info: info});
 })
 
 // tell the express app to listen on port 8000, always put this at the end of your server.js file
