@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="/foundation.css">
+    <link rel="stylesheet" type="text/css" href="/mystyle.css">
+    <title>Express Survey</title>
+</head>
+
+<body>
+    <div id="container">
+        <form action="/process" method="post">
+            <h1>Coding Dojo Express Survey</h1>
+            <div class="form-group">
+                Your Name:
+                <input class="form-control" type="text" name="name" value="">
+            </div>
+            <div class="form-group">
+                Dojo Location:
+                <select class="form-control" name="location" placeholder="select">
+                    <option selected disabled>Please select</option>
+                    <option value="Chicago">Chicago</option>
+                    <option value="Dallas">Dallas</option>
+                    <option value="Los Angeles">Los Angeles</option>
+                    <option value="Seattle">Seattle</option>
+                </select>
+            </div>
+            <div class="form-group">
+                Favorite Language:
+                <select class="form-control" name="language">
+                    <option selected disabled>Please select</option>
+                    <option value="Javascript">Javascript</option>
+                    <option value="Python">Python</option>
+                    <option value="Java">Java</option>
+                    <option value="Ruby">Ruby</option>
+                    <option value="Node">Node</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <p>Comment (optional)</p>
+                <textarea class="form-control" name="comment" value=""></textarea>
+            </div>
+            <input class="button expanded" type="submit" value="Submit">
+        </form>
+    </div>
+</body>
+
+</html>

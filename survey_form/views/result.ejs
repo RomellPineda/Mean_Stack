@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="/foundation.css">
+    <link rel="stylesheet" type="text/css" href="/mystyle.css">
+    <title>Survey Result</title>
+</head>
+
+<body>
+    <div id="container">
+        <h1>Submitted Information</h1>
+        <h3>Name: <%= result[0].name %></h3>
+        <h3>Dojo Location: <%= result[1].location %></h3>
+        <h3>Favorite Language: <%=  result[2].language %></h3>
+        <h3>Comment: <%= result[3].comment %></h3>
+        <a class="button expanded" href='/'>Go Back</a>
+    </div>
+</body>
+
+</html>
