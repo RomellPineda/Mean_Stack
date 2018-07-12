@@ -1,0 +1,23 @@
+Make new db called 'my_first_db'
+In mongo shell after starting up daemon
+
+> use my_first_db
+
+Make new collection
+
+> db.createCollection('collection_name')
+
+Delete a collection
+
+> db.collection_name.drop()
+
+Add data
+
+> db.collection_name.insert({})
+EX. db.students.insert({name:'Subzero'})
+
+Find all
+
+> db.ninjas.find({})
+or
+> db.ninjas.find()
