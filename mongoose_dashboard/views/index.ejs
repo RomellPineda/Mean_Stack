@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="/boots.css">
+    <link rel="stylesheet" type="text/css" href="/mystyle.css">
+    <title>Critters</title>
+</head>
+
+<body>
+    <div id="container">
+        <h1>Welcome to Critter Country</h1>
+        <% for(var elem of critters) { %>
+            <a href="/showcritter/<%= elem.id %>"><h4><%= elem.name %></h4></a>
+            <p><%= elem.info %></p>
+            <a href="/critters/edit/<%= elem.id %>"><button class="btn btn-info">Edit</button></a>
+            <form action="/critters/destroy/<%= elem.id %>" method="post">
+                <input class="btn btn-danger" type="submit" value="Delete">
+            </form>
+        <% } %>
+        <a href="/createcrit/new"><button class="btn btn-primary btn-lg btn-block">Add a Critter</button></a>
+    </div>
+</body>
+
+</html>

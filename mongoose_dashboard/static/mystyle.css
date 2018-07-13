@@ -1,0 +1,14 @@
+body {
+    width: 100%;
+    background-image: url('/images/c1.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+}
+#container {
+    width: 650px;
+    min-height: 500px;
+    padding: 10px;
+    display: block;
+    margin: 10px auto;
+    margin-top: 70px;
+}
