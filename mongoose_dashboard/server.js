@@ -34,6 +34,7 @@ app.get('/', function (req, res) {
     })
 })
 
+// Warning: Express does not differentiate between integers and strings during routing and catches either indiscriminately /something/1 and /something/one will trigger same event
 app.get('/createcrit/new', function (req, res) {
     console.log('get request /critter/new fired');
     res.render('add');
@@ -68,6 +69,7 @@ app.post('/critters', function (req, res) {
         }
     })
 })
+
 app.get('/critters/edit/:id', function (req, res) {
     // findById target specific //////////
     Critter.findById({ _id: req.params.id }, function (err, crit) {
@@ -81,6 +83,7 @@ app.get('/critters/edit/:id', function (req, res) {
         }
     })
 })
+
 app.post('/critters/:id', function (req, res) {
     console.log(req.params.id);
     Critter.update({ _id: req.params.id }, req.body, function (err, donut) {
@@ -96,6 +99,7 @@ app.post('/critters/:id', function (req, res) {
         }
     })
 })
+
 app.post('/critters/destroy/:id', function (req, res) {
     console.log(req.params.id);
     Critter.remove({ _id: req.params.id }, function (err, donut) {
