@@ -9,14 +9,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.set('views', path.join(__dirname, './views'));
 app.set('view engine', 'ejs');
 
-mongoose.connect('mongodb://localhost/quoting_dojo');
-var UserSchema = new mongoose.Schema({
-    name: String,
-    quote: String
-}, {timestamps: true})
-mongoose.model('User', UserSchema); // Setting this Schema in Models as 'User'
-var User = mongoose.model('User');
-
+require('./server/config/mongoose.js');
 require('./server/config/routes.js')(app);
 
 app.listen(8000, function() {
