@@ -14,7 +14,6 @@ module.exports = {
         })
     },
     new_penguin: (req, res)=>{
-        // Is req.body valid argument?
         Person.create({name: req.params.name}, (err, new_penguin)=>{
             if(err){
                 console.log('Error:', err);
@@ -26,7 +25,6 @@ module.exports = {
         })
     },
     remove: (req, res)=>{
-        // Is req.body valid argument?
         Person.remove({name: req.params.name}, (err)=>{
             if(err){
                 console.log('Error:', err);
@@ -38,7 +36,6 @@ module.exports = {
         })
     },
     info: (req, res)=>{
-        // Is req.body valid argument?
         Person.findOne({name: req.params.name}, (err, target)=>{
             if(err){
                 console.log('Error:', err);
@@ -50,5 +47,3 @@ module.exports = {
         })
     },
 }
-
-// Do I need to import/arm json
