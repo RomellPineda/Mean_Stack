@@ -58,7 +58,7 @@ module.exports = {
         })
     },
 }
-// Example:
+// Possible future reference/Example:
 // User.findByIdAndUpdate(req.params.user_id,{$set:req.body}, function(err, result){
 //     if(err){
 //         console.log(err);
