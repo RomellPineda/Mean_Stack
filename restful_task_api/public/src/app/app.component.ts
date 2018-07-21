@@ -16,6 +16,7 @@ export class AppComponent implements OnInit {
   loggedIn: boolean;
   tasks = [];
   missions: any;
+  newTask: any;
 
   // onButtonClickParam(num: Number): void { 
   //   console.log(`Click event is working with num param: ${num}`);
@@ -23,6 +24,18 @@ export class AppComponent implements OnInit {
   //   let observable = this._httpService.postToServer({data: num});
   //   observable.subscribe(data => console.log("Got our data!", data));
   // }
+
+  onSubmit() {
+    console.log('onSubmit triggered', this.newTask);
+    // Code to send off the form data (this.newTask) to the Service
+    let obser = this._httpService.addTask(this.newTask);
+    obser.subscribe(data=>{
+      console.log('Component onSubmit triggered', data);
+      // Reset this.newTask to a new, clean object.
+      this.newTask = { title: "", description: "" };
+      this.onButtonClick();
+    })
+  }
 
   onButtonClick(): void { 
     console.log(`Click event triggered`);
@@ -43,6 +56,7 @@ export class AppComponent implements OnInit {
     this.snacks = ["vanilla latte with skim milk", "brushed suede", "cookie"];
     this.loggedIn = true;
     this.getTasksFromService()
+    this.newTask = { title: "", description: "" }
   }
   getTasksFromService(){
     let taskObservable = this._httpService.getTasks();

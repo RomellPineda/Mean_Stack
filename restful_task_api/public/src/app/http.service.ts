@@ -9,6 +9,7 @@ export class HttpService {
     console.log('Run and Gun');
     // this.getTasks();
   }
+
   getTasks(){
     // our http response is an Observable, store it in a variable
     // let tempObservable = this._http.get('https://pokeapi.co/api/v2/pokemon/13/');
@@ -20,10 +21,15 @@ export class HttpService {
     // obs.subscribe(data=>{console.log(data)});
     // return obs;
  }
+
  postToServer(num){
   // use the .post() method of HttpClient
   // num must be an object
   // provide the url of your post route - make sure this is set up in your server!
   return this._http.post('/tasks', num);  
+  }
+
+  addTask(newTask: any){
+    return this._http.post(`/new/${newTask.title}/${newTask.description}`, newTask);
   }
 }

@@ -18,7 +18,13 @@
   <button *ngIf="mission.title" (click)="onButtonClickInquire(mission.id)">Mission Deets</button>
   <p>{{mission.description}}</p>
 </div>
-<p *ngIf="snacks.length < 3">You need more snacks.</p>
+<form (submit)="onSubmit()">
+    <p> {{ newTask | json }} </p>
+    <input type="text" name="newTask.title" [(ngModel)]="newTask.title" />
+    <input type="text" name="newTask.description" [(ngModel)]="newTask.description" />
+    <input type="submit" value="Create Task" />
+</form>
+<!-- <p *ngIf="snacks.length < 3">You need more snacks.</p> -->
 <!-- <h2>Here are some links to help you start: </h2>
 <ul>
   <li>
