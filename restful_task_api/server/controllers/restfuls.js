@@ -47,13 +47,13 @@ module.exports = {
         })
     },
     delete: (req, res)=>{
-        Task.remove({_id: req.params.id}, (err)=>{
+        Task.remove({_id: req.params.id}, (err, data)=>{
             if(err){
                 console.log('Error:', err);
                 res.json({message: 'Error', err})
             }
             else{
-                res.json({message: 'Successfully removed'})
+                res.json({message: 'Successfully removed', data})
             }
         })
     },

@@ -8,15 +8,18 @@ import { HttpService } from './http.service';
 })
 export class AppComponent implements OnInit {
   title = 'Mean';
+
   num: number;
   randNum: number;
   str: string;
   first_name: string;
   snacks: string[];
   loggedIn: boolean;
+
   tasks = [];
   missions: any;
   newTask: any;
+  Editswitch: any;
 
   // onButtonClickParam(num: Number): void { 
   //   console.log(`Click event is working with num param: ${num}`);
@@ -34,6 +37,31 @@ export class AppComponent implements OnInit {
       // Reset this.newTask to a new, clean object.
       this.newTask = { title: "", description: "" };
       this.onButtonClick();
+    })
+  }
+
+  onButtonClickKill(task: any) {
+    console.log('Kill triggered', task);
+    let obse = this._httpService.deleteTask(task);
+    obse.subscribe(data=>{
+      console.log('Killing', data);
+      this.onButtonClick();
+    })
+  }
+
+  onButtonClickEdit(task: any){
+    console.log('Edit triggered', task);
+    this.Editswitch = {...task};
+  }
+
+  submitEdit(){
+    let obs = this._httpService.editTask(this.Editswitch);
+    obs.subscribe(data =>{
+      console.log(data)
+      this.Editswitch = null;
+
+      this.onButtonClick();
+
     })
   }
 

@@ -15,13 +15,26 @@
 <!-- <p *ngFor="let mission of missions">{{mission.title}}</p> -->
 <div *ngFor="let mission of missions">
   <h3>{{mission.title}}</h3>
-  <button *ngIf="mission.title" (click)="onButtonClickInquire(mission.id)">Mission Deets</button>
   <p>{{mission.description}}</p>
+  <!-- <button *ngIf="mission.title" (click)="onButtonClickInquire(mission)">Mission Deets</button>
+  <button *ngIf="mission.title" (click)="onButtonClickEdit(mission)">Edit Mission</button>
+  <button *ngIf="mission.title" (click)="onButtonClickKill(mission)">Kill Mission</button> -->
+  <button (click)="onButtonClickInquire(mission)">Mission Deets</button>
+  <button (click)="onButtonClickEdit(mission)">Edit Mission</button>
+  <button (click)="onButtonClickKill(mission)">Kill Mission</button>
+</div>
+<div *ngIf="Editswitch">
+  <form (submit)="submitEdit()">
+    <p> {{ newTask | json }} </p>
+    <p>Title: <input type="text" name="Editswitch.title" [(ngModel)]="Editswitch.title"></p>
+    <p>Description: <input type="text" name="Editswitch.description" [(ngModel)]="Editswitch.description"></p>
+    <input type="submit" value="Edit Task" />
+  </form>
 </div>
 <form (submit)="onSubmit()">
     <p> {{ newTask | json }} </p>
-    <input type="text" name="newTask.title" [(ngModel)]="newTask.title" />
-    <input type="text" name="newTask.description" [(ngModel)]="newTask.description" />
+    <input type="text" name="newTask.title" [(ngModel)]="newTask.title">
+    <input type="text" name="newTask.description" [(ngModel)]="newTask.description">
     <input type="submit" value="Create Task" />
 </form>
 <!-- <p *ngIf="snacks.length < 3">You need more snacks.</p> -->
