@@ -7,22 +7,14 @@
 </div>
 <button (click)="onButtonClick()">Acquire Tasks</button>
 
-<!-- <h3>Value of num is: {{num}}</h3> -->
-<!-- <h3>Value of randNum is: {{randNum}}</h3>
-<h3>{{str}}</h3>
-<input type="text" [value]="first_name" />
-<p *ngIf="loggedIn">You are logged in!</p> -->
-<!-- <p *ngFor="let mission of missions">{{mission.title}}</p> -->
 <div *ngFor="let mission of missions">
   <h3>{{mission.title}}</h3>
   <p>{{mission.description}}</p>
-  <!-- <button *ngIf="mission.title" (click)="onButtonClickInquire(mission)">Mission Deets</button>
-  <button *ngIf="mission.title" (click)="onButtonClickEdit(mission)">Edit Mission</button>
-  <button *ngIf="mission.title" (click)="onButtonClickKill(mission)">Kill Mission</button> -->
   <button (click)="onButtonClickInquire(mission)">Mission Deets</button>
   <button (click)="onButtonClickEdit(mission)">Edit Mission</button>
   <button (click)="onButtonClickKill(mission)">Kill Mission</button>
 </div>
+
 <div *ngIf="Editswitch">
   <form (submit)="submitEdit()">
     <p> {{ newTask | json }} </p>
@@ -31,23 +23,10 @@
     <input type="submit" value="Edit Task" />
   </form>
 </div>
+
 <form (submit)="onSubmit()">
     <p> {{ newTask | json }} </p>
     <input type="text" name="newTask.title" [(ngModel)]="newTask.title">
     <input type="text" name="newTask.description" [(ngModel)]="newTask.description">
     <input type="submit" value="Create Task" />
 </form>
-<!-- <p *ngIf="snacks.length < 3">You need more snacks.</p> -->
-<!-- <h2>Here are some links to help you start: </h2>
-<ul>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://angular.io/tutorial">Tour of Heroes</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://github.com/angular/angular-cli/wiki">CLI Documentation</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://blog.angular.io/">Angular blog</a></h2>
-  </li>
-</ul> -->
-

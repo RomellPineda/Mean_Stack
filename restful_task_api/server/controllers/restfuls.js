@@ -58,11 +58,3 @@ module.exports = {
         })
     },
 }
-// Possible future reference/Example:
-// User.findByIdAndUpdate(req.params.user_id,{$set:req.body}, function(err, result){
-//     if(err){
-//         console.log(err);
-//     }
-//     console.log("RESULT: " + result);
-//     res.send('Done')
-// });
