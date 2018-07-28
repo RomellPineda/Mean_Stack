@@ -15,9 +15,8 @@ var CritterSchema = new mongoose.Schema({
     name: String,
     info: String
 })
-mongoose.model('Critter', CritterSchema); // We are setting this Schema in our Models as 'Critter'
+mongoose.model('Critter', CritterSchema);
 
-// The variable critter is what will be used for querying or database interaction ///////////////
 var Critter = mongoose.model('Critter')
 mongoose.Promise = global.Promise;
 
@@ -34,7 +33,6 @@ app.get('/', function (req, res) {
     })
 })
 
-// Warning: Express does not differentiate between integers and strings during routing and catches either indiscriminately /something/1 and /something/one will trigger same event
 app.get('/createcrit/new', function (req, res) {
     console.log('get request /critter/new fired');
     res.render('add');
@@ -56,14 +54,10 @@ app.get('/showcritter/:id', function (req, res) {
 
 app.post('/critters', function (req, res) {
     console.log("POST DATA", req.body);
-    // Alternative to .create method //////////
-    // var critter = new Critter({ name: req.body.name, info: req.body.info });
     Critter.create(req.body, function (err, new_crit) {
-        // Try to save that new user to the database (this is the method that actually inserts into the db) and run a callback function with an error (if any) from the operation.
-        // if there is an error console.log that something went wrong!
         if (err) {
             console.log('Error:', err);
-        } else { // else console.log that we did well and then redirect to the root route
+        } else {
             console.log('Successfully added a critter!', new_crit);
             res.redirect('/');
         }
@@ -71,7 +65,6 @@ app.post('/critters', function (req, res) {
 })
 
 app.get('/critters/edit/:id', function (req, res) {
-    // findById target specific //////////
     Critter.findById({ _id: req.params.id }, function (err, crit) {
         if (err) {
             console.log('Error:', err);
@@ -89,11 +82,8 @@ app.post('/critters/:id', function (req, res) {
     Critter.update({ _id: req.params.id }, req.body, function (err, donut) {
         if (err) {
             console.log('Error:', err);
-            // Backtick enables direct interpolation ////////////
-            // res.redirect(`/critters/edit/${req.params.id}`);
-            // Conventional method:
             res.redirect('/critters/edit/' + req.params.id);
-        } else { // else console.log that we did well and then redirect to the root route
+        } else {
             console.log('Successfully edited a critter!', donut);
             res.redirect('/');
         }
@@ -105,7 +95,7 @@ app.post('/critters/destroy/:id', function (req, res) {
     Critter.remove({ _id: req.params.id }, function (err, donut) {
         if (err) {
             console.log('Error:', err);
-        } else { // else console.log that we did well and then redirect to the root route
+        } else {
             console.log('Successfully deleted a critter!', donut);
             res.redirect('/');
         }
