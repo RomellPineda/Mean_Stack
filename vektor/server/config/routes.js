@@ -9,7 +9,7 @@ module.exports = function(app){
     app.post('/api/courses/new', courses.newOp);
     app.put('/api/courses/:id', courses.update);
 
-    app.post('/api/courses/:id/student', courses.addReview);
+    app.post('/api/courses/:id/student', courses.addStudent);
 
     app.all('*', (req, res)=>{
         res.sendFile(path.resolve('./public/dist/public/index.html'));

@@ -75,7 +75,7 @@ module.exports = {
         })
     },
 
-    addReview: (req, res) => {
+    addStudent: (req, res) => {
         Student.create(req.body, (err, newreview) => {
             if (err) {
                 res.json(err);
@@ -91,18 +91,17 @@ module.exports = {
                 })
             }
         })
-    }
+    },
 
-    //Remove Student
-    // removeStudent: (req, res) => {
-    //     Course.update({_id: req.params.course_id}, {$pull: {reviews: {_id: req.params.student_id}}}, (err, data) => {
-    //         if(err) {
-    //             res.json(err)
-    //         }
-    //         else {
-    //             res.json(data);
-    //         }
-    //     })
-    // }
+    removeStudent: (req, res) => {
+        Course.update({_id: req.params.course_id}, {$pull: {students: {_id: req.params.student_id}}}, (err, data) => {
+            if(err) {
+                res.json(err)
+            }
+            else {
+                res.json(data);
+            }
+        })
+    }
 
 }

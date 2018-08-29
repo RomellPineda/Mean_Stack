@@ -14,12 +14,12 @@ const routes: Routes = [
 
   //new will be caught by :id if vektor/:id path is above vektor/new path
   {path: 'vektor/new', component: AddComponent},
+  {path: 'vektor/signup', component: ReviewComponent},
 
   {path: 'vektor/about', component: AboutComponent},
   {path: 'vektor/courses', component: CoursesComponent},
   {path: 'vektor/:id', component: CourseComponent},
   {path: 'vektor/:id/edit', component: EditComponent},
-  {path: 'vektor/signup', component: ReviewComponent},
   {path: '', pathMatch: 'full', redirectTo: '/vektor'},
 ];
 
