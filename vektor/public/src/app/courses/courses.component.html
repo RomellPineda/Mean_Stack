@@ -1,3 +1,27 @@
-<p>
-  courses works!
-</p>
+<div>
+  <img id="courses" src="assets/images/courses.jpg" class="img-responsive">
+</div>
+<div class="container">
+  <table class="table table-striped">
+    <thead class="thead-dark">
+      <tr>
+        <th>Course Title</th>
+        <th>Instructor</th>
+        <th>Location</th>
+        <th>Date</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tr *ngFor="let course of courses">
+      <td>{{course.name}}</td>
+      <td>{{course.instructor}}</td>
+      <td>{{course.location}}</td>
+      <td>{{course.date}}</td>
+      <td>
+        <button class="btn btn-outline-primary" [routerLink]="[course._id]">View</button>
+        <button class="btn btn-outline-secondary" [routerLink]="[course._id, 'edit']">Edit</button>
+        <button class="btn btn-outline-danger" (click)="delcourse(course._id)">Delete</button>
+      </td>
+    </tr>
+  </table>
+</div>

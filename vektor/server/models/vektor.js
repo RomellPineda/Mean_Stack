@@ -13,7 +13,7 @@ const CourseSchema = new mongoose.Schema({
     description: {type: String, required: [true, 'Course description required'], minlength: [3, 'Course description must be three or more characters']},
     instructor: {type: String, required: [true, 'Primary instructor required'], minlength: [2, 'Instructor name must be three or more characters in length']},
     location: {type: String, required: [true, 'Course location required'], minlength: [3, 'Course location must be three or more characters']},
-    date: {type: Date, required: [true, 'Course date required']},
+    date: {type: Date, required: [true, 'Course date required'], min: [Date.now, 'Must be future date']},
     students: [StudentSchema]
 });
 mongoose.model('Course', CourseSchema);
