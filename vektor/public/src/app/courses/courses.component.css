@@ -2,3 +2,11 @@
     width: 100%;
     height: 400px;
 }
+#view_btn {
+    background-color: rgb(243, 82, 82);
+    color: white;
+}
+#edit_btn {
+    background-color: rgb(124, 125, 128);
+    color: white;
+}

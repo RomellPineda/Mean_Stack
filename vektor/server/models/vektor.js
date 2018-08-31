@@ -5,8 +5,8 @@ const StudentSchema = new mongoose.Schema({
     specialty: {type: String, required: [true, 'Please disclose your specialty'], minlength: [1, 'Specialty must be more than one character']},
     luckynumber: {type: Number, required: [true, 'Please provide your lucky number'], min: [1, 'Stay positive'], validate : {
     validator : Number.isInteger,
-    message   : '{VALUE} is not an integer, friend!'}},
-    comment: {type: String, required: [true, 'Please write a review'], minlength: [3, 'Review must be three or more characters']}
+    message   : 'Need an integer, friend!'}},
+    comment: {type: String, minlength: [2, 'Review should be two or more characters']}
 });
 mongoose.model('Student', StudentSchema);
 

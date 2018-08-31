@@ -1,0 +1,11 @@
+.container {
+    margin-top: 50px;
+    height: 600px;
+}
+#btn {
+    background-color: rgb(82, 80, 80);
+    color: white;
+}
+#alert {
+    color: orange;
+}

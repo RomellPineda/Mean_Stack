@@ -34,6 +34,7 @@ export class ReviewComponent implements OnInit {
   registerStudent(id: string){
     this._httpService.addStudent(id, this.student).subscribe(data =>{
       if(data['errors']){
+        console.log(data['errors']);
         for(var err in data['errors']){
 
           // Clear previous errors
