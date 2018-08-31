@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { HttpService } from '../http.service';
+import { ActivatedRoute } from '../../../node_modules/@angular/router';
 
 @Component({
   selector: 'app-course',
@@ -6,10 +8,24 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./course.component.css']
 })
 export class CourseComponent implements OnInit {
+  course: any;
 
-  constructor() { }
+  constructor(private _httpService: HttpService, private _route: ActivatedRoute) { }
 
   ngOnInit() {
+    console.log('Single course spun up');
+    this._route.params.subscribe(data => {
+      console.log(data);
+      // Is data id neccessary or is it just data since router sent up id???
+      this.getACourse(data['id']);
+    })
+  }
+
+  getACourse(id: string){
+    this._httpService.getOne(id).subscribe(data => {
+      console.log('Acquiring single', data);
+      this.course = data;
+    })
   }
 
 }

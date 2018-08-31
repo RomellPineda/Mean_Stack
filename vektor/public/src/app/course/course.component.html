@@ -1,3 +1,33 @@
-<p>
-  course works!
-</p>
+<div *ngIf="course" id="container">
+  <div class="col-sm-12 col-md-6 pull-left">
+    <h2>{{course.name}}</h2>
+    <p>{{course.location}}</p>
+    <p>{{course.date}}</p>
+    <p>{{course.instructor}}</p>
+    <p>{{course.description}}</p>
+
+    <button class="btn btn-outline-primary" [routerLink]="[course._id, 'signup']">Register for Course</button>
+  </div>
+  <figure class="col-sm-12 col-md-6">
+    <img id="course" src="assets/images/course.jpg" class="img-responsive">
+  </figure>
+  <div class="col-md-10">
+    <table class="table table-striped">
+      <thead class="thead-dark">
+        <tr>
+          <th>Call Sign</th>
+          <th>Lucky Number</th>
+          <th>Specialty</th>
+        </tr>
+      </thead>
+      <tr *ngFor="let student of course['students']">
+        <td>{{student.callsign}}</td>
+        <td>{{student.luckynumber}}</td>
+        <td>{{student.specialty}}</td>
+      </tr>
+    </table>
+  </div>
+
+  <!-- Map! -->
+
+</div>
