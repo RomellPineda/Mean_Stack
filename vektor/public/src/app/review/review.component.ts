@@ -34,7 +34,7 @@ export class ReviewComponent implements OnInit {
   registerStudent(id: string){
     this._httpService.addStudent(id, this.student).subscribe(data =>{
       if(data['errors']){
-        console.log(data['errors']);
+        console.log('Hit error', data['errors']);
         for(var err in data['errors']){
 
           // Clear previous errors
@@ -49,7 +49,7 @@ export class ReviewComponent implements OnInit {
 
         // Flash success message?
 
-        this._router.navigate(['/restaurants'])
+        this._router.navigate(['/vektor/courses'])
       }
     })
   }

@@ -3,9 +3,7 @@ const mongoose = require('mongoose');
 const StudentSchema = new mongoose.Schema({
     callsign: {type: String, required: [true, 'Callsign required'], minlength: [3, 'Callsign must be three or more characters']},
     specialty: {type: String, required: [true, 'Please disclose your specialty'], minlength: [1, 'Specialty must be more than one character']},
-    luckynumber: {type: Number, required: [true, 'Please provide your lucky number'], min: [1, 'Stay positive'], validate : {
-    validator : Number.isInteger,
-    message   : 'Need an integer, friend!'}},
+    luckynumber: {type: Number, required: [true, 'Please provide your lucky number'], min: [1, 'Stay positive']},
     comment: {type: String, minlength: [2, 'Review should be two or more characters']}
 });
 mongoose.model('Student', StudentSchema);
