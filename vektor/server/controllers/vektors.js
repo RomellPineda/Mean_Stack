@@ -65,7 +65,7 @@ module.exports = {
     },
     
     delete: (req, res) => {
-        Course.remove({ _id: req.params.id }, (err, data) => {
+        Course.deleteOne({ _id: req.params.id }, (err, data) => {
             if (err) {
                 res.json(err);
             }

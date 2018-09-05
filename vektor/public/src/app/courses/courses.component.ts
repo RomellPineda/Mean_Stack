@@ -22,12 +22,11 @@ export class CoursesComponent implements OnInit {
     })
   }
 
-  // Reference:
-  // delSpot(spot: any) {
-  //   console.log('Delete Function fired', spot);
-  //   this._httpService.leteSpot(spot).subscribe(data => {
-  //     this.getAll();
-  //   })
-  // }
+  redactCourse(target: any) {
+    console.log('Delete Function fired ////////', target);
+    this._httpService.abortCourse(target).subscribe(data => {
+      this.getEm();
+    })
+  }
 
 }
