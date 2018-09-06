@@ -8,6 +8,33 @@
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" type="image/x-icon" href="favicon.ico">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script type="text/javascript" src="/socket.io/socket.io.js"></script>
+
+  <script type="text/javascript">
+    $(document).ready(function () {
+      var socket = io.connect();
+      var $messageForm = $('#messageForm');
+      var $message = $('#message');
+      var $chat = $('#chat');
+
+      $messageForm.submit(function (e) {
+        e.preventDefault();
+
+        //Failed to fire.  No Submitted! logged.  Establish connection to backend via ...
+        console.log('Submitted!', data);
+        socket.emit('send message', $message.val());
+        $message.val('');
+      });
+
+      socket.on('new message', function(data) {
+        $chat.append('<div class="well">'+data+'</div>');
+      });
+
+    });
+  </script>
+
 </head>
 
 <body>
@@ -83,21 +110,23 @@
 
     }
   </script>
+
   <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBPB4HKwqq5IDVKs04hbYhOGi9CsW0xdvE&libraries=places&callback=initMap">
   </script>
 
-<script>
-  // When the user scrolls down 20px from the top of the document, show the button
-  window.onscroll = function() {support()};
-  
-  function support() {
+  <script>
+    // When the user scrolls down 20px from the top of the document, show the button
+    window.onscroll = function () { support() };
+
+    function support() {
       if (document.body.scrollTop > 40 || document.documentElement.scrollTop > 40) {
-          document.getElementById("support_btn").style.display = "block";
+        document.getElementById("support_btn").style.display = "block";
       } else {
-          document.getElementById("support_btn").style.display = "none";
+        document.getElementById("support_btn").style.display = "none";
       }
-  }
-</script>
+    }
+  </script>
+
 </body>
 
 </html>
