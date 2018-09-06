@@ -15,6 +15,7 @@ import { CourseComponent } from './course/course.component';
 import { EditComponent } from './edit/edit.component';
 import { AddComponent } from './add/add.component';
 import { ReviewComponent } from './review/review.component';
+import { SupportComponent } from './support/support.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { ReviewComponent } from './review/review.component';
     CourseComponent,
     EditComponent,
     AddComponent,
-    ReviewComponent
+    ReviewComponent,
+    SupportComponent
   ],
   imports: [
     BrowserModule,

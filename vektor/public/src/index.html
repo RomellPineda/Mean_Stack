@@ -85,6 +85,19 @@
   </script>
   <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBPB4HKwqq5IDVKs04hbYhOGi9CsW0xdvE&libraries=places&callback=initMap">
   </script>
+
+<script>
+  // When the user scrolls down 20px from the top of the document, show the button
+  window.onscroll = function() {support()};
+  
+  function support() {
+      if (document.body.scrollTop > 40 || document.documentElement.scrollTop > 40) {
+          document.getElementById("support_btn").style.display = "block";
+      } else {
+          document.getElementById("support_btn").style.display = "none";
+      }
+  }
+</script>
 </body>
 
 </html>
