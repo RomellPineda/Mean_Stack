@@ -3,10 +3,12 @@
     height: 400px;
 }
 #view_btn {
-    background-color: rgb(243, 82, 82);
+    /* background-color: rgb(243, 82, 82); */
+    background-color: rgb(236, 55, 55);
     color: white;
 }
 #edit_btn {
-    background-color: rgb(124, 125, 128);
+    /* background-color: rgb(124, 125, 128); */
+    background-color: rgb(82, 80, 80);
     color: white;
 }

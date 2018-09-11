@@ -76,12 +76,12 @@ module.exports = {
     },
 
     addStudent: (req, res) => {
-        Student.create(req.body, (err, newreview) => {
+        Student.create(req.body, (err, newstudent) => {
             if (err) {
                 res.json(err);
             }
             else {
-                Course.update({ _id: req.params.id }, { $push: { reviews: newreview } }, (err, data) => {
+                Course.update({ _id: req.params.id }, { $push: { students: newstudent } }, (err, data) => {
                     if (err) {
                         res.json(err);
                     }

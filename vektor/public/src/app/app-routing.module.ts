@@ -16,7 +16,7 @@ const routes: Routes = [
   {path: 'vektor/about', component: AboutComponent},
   {path: 'vektor/courses', component: CoursesComponent},
   {path: 'vektor/courses/:id', component: CourseComponent},
-  {path: 'vektor/:id/edit', component: EditComponent},
+  {path: 'vektor/courses/:id/edit', component: EditComponent},
   {path: '', pathMatch: 'full', redirectTo: '/vektor'},
 ];
 

@@ -1,0 +1,6 @@
+#map {
+    width: 100%;
+    height: 400px;
+    -webkit-filter: grayscale(97%);
+    filter: grayscale(97%);
+}

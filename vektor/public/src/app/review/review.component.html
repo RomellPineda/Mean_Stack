@@ -1,12 +1,13 @@
 <img id="register" src="assets/images/add.jpeg">
 <div *ngIf="course" class="container">
   <h2>Register for {{course.name}}</h2>
-  <p>Course location: {{course.location}}</p>
+  <h4>{{course.location}}</h4>
+  <h4>{{course.date | date: 'MMM dd, yyyy'}}</h4>
   <form (submit)="registerStudent(course._id)">
     <p class="errors" *ngFor="let err of errors">{{err}}</p>
 
     <div class="form-group">
-        Provide a call sign or alias:
+        Provide your call sign or alias:
         <input class="form-control" type="text" name="student.callsign" [(ngModel)]="student.callsign">
     </div>
 
