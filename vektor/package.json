@@ -11,11 +11,15 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@types/socket.io-client": "^1.4.32",
     "body-parser": "^1.18.3",
     "bootstrap": "^3.3.7",
     "express": "^4.16.3",
     "jquery": "^3.3.1",
     "mongoose": "^5.2.10",
-    "mongoose-integer": "^0.1.1"
+    "mongoose-integer": "^0.1.1",
+    "rxjs": "^6.3.2",
+    "socket.io": "^2.1.1",
+    "socket.io-client": "^2.1.1"
   }
 }

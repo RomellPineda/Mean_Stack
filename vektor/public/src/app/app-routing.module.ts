@@ -8,6 +8,7 @@ import { CourseComponent } from './course/course.component';
 import { EditComponent } from './edit/edit.component';
 import { AddComponent } from './add/add.component';
 import { ReviewComponent } from './review/review.component';
+import { SupportComponent } from './support/support.component';
 
 const routes: Routes = [
   {path: 'vektor', component: MainComponent},
@@ -17,6 +18,8 @@ const routes: Routes = [
   {path: 'vektor/courses', component: CoursesComponent},
   {path: 'vektor/courses/:id', component: CourseComponent},
   {path: 'vektor/courses/:id/edit', component: EditComponent},
+  {path: 'vektor/support', component: SupportComponent},
+  
   {path: '', pathMatch: 'full', redirectTo: '/vektor'},
 ];
 

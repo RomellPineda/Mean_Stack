@@ -5,6 +5,7 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpService } from './http.service';
 import { HttpClientModule } from '@angular/common/http';
+import { ChatService } from './chat.service';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -15,6 +16,7 @@ import { CourseComponent } from './course/course.component';
 import { EditComponent } from './edit/edit.component';
 import { AddComponent } from './add/add.component';
 import { ReviewComponent } from './review/review.component';
+import { SupportComponent } from './support/support.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +27,8 @@ import { ReviewComponent } from './review/review.component';
     CourseComponent,
     EditComponent,
     AddComponent,
-    ReviewComponent
+    ReviewComponent,
+    SupportComponent,
   ],
   imports: [
     BrowserModule,
@@ -33,7 +36,10 @@ import { ReviewComponent } from './review/review.component';
     HttpClientModule,
     FormsModule,
   ],
-  providers: [HttpService],
+  providers: [
+    HttpService,
+    ChatService,
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

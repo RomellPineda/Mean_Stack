@@ -1,0 +1,30 @@
+<div class="jumbotron text-center">
+  <h1>How can we help you?</h1>
+</div>
+<div class="container">
+  <!-- Reference -->
+  <!-- <div class="col-md-6">
+  <div class="chat" id="chat"></div>
+  <form action="" id="messageForm">
+    <div class="form-group">
+      <label>Enter Message</label>
+      <textarea class="form-control" id="message"></textarea>
+      <br>
+      <input type="submit" class="btn btn-primary" value="Send Message">
+    </div>
+  </form>
+</div> -->
+<!-- <button (submit)="sendMessage()" [(ngModel)]="message" value="SEND IT!" class="btn btn-primary">Send Message</button> -->
+
+  <div class="col-md-6">
+    <div class="chat" id="chat"></div>
+    <form (submit)="sendMessage()" id="messageForm">
+      <div class="form-group">
+        <label>Enter Message</label>
+        <textarea [(ngModel)]="message" class="form-control" id="message"></textarea>
+        <br>
+        <input type="submit" class="btn btn-primary" value="Send Message">
+      </div>
+    </form>
+  </div>
+</div>
