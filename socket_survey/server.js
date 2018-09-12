@@ -7,6 +7,8 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static(__dirname + "/public"));
 const server = app.listen(1337);
 const io = require('socket.io')(server);
+users = [];
+connections = [];
 
 app.set("views", path.join(__dirname, "./views"));
 app.set("view engine", "ejs");
@@ -14,12 +16,34 @@ app.set("view engine", "ejs");
 app.get("/", function (req, res) {
     res.render("index");
 });
-io.on("connection", function (socket) { //2
 
-    socket.on("posting_form", function(object){
-        console.log(object);
-        console.log("Server says: Did I get the survey data?");
-        socket.emit("updated_message", {response : "You emitted the following information to the server:", survey_datar : object});
-        socket.emit("random_number", {response : "Your lucky number emitted by the server is:", random : Math.ceil(Math.random()*1000)});
+io.sockets.on('connection', function(socket) {
+    connections.push(socket);
+    console.log('Connected: %s sockets connected', connections.length);
+
+    // Disconnect
+    socket.on('disconnect', function(data) {
+        users.splice(users.indexOf(socket.username), 1);
+        updateUsernames();
+        connections.splice(connections.indexOf(socket), 1);
+        console.log('Disconnected: %s sockets connected', connections.length)
     });
+
+    // Send Message
+    socket.on('send message', function(data) {
+        console.log(data);
+        io.sockets.emit('new message', {msg: data, user: socket.username});
+    });
+
+    // New User
+    socket.on('new user', function(data, callback) {
+        callback(true);
+        socket.username = data;
+        users.push(socket.username);
+        updateUsernames();
+    });
+
+    function updateUsernames() {
+        io.sockets.emit('get users', users)
+    }
 });

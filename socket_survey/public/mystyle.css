@@ -9,3 +9,6 @@ body {
     margin: 10px auto;
     margin-top: 70px;
 }
+#messageArea {
+    display: none;
+}
