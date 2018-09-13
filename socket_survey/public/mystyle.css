@@ -3,3 +3,6 @@ body {
     height: 800px;
     background-image: url('/images/c1.jpg');
 }
+.jumbotron {
+    border-radius: 0px;
+}

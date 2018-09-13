@@ -9,11 +9,14 @@ export class ChatService {
   private url = 'http://localhost:5000';
   private socket;
 
-  // private _chat: ChatClient + import??
   constructor() { }
 
-  sendMessage(message){
-    this.socket.emit('add-message', message);    
+  // sendName(name){
+  //   this.socket.emit('new_user', name);
+  // }
+
+  relayMessage(message: any){
+    this.socket.emit('add-message', message);
   }
 
   getMessages() {

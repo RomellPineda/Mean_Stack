@@ -14,19 +14,21 @@ require('./server/config/routes.js')(app);
 //     console.log("/// Standing by on 8000");
 // })
 
-// New implements
-const server = app.listen(5000);
+// Socket.io
+const server = app.listen(5000, () => {
+    console.log('/// Standing by on 5000')
+});
 const io = require('socket.io')(server);
 users = [];
 connections = [];
 
 
-io.sockets.on('connection', function(socket) {
+io.sockets.on('connection', (socket) => {
     connections.push(socket);
     console.log('Connected: %s sockets connected', connections.length);
 
     // Disconnect
-    socket.on('disconnect', function(data) {
+    socket.on('disconnect', (data) => {
         users.splice(users.indexOf(socket.username), 1);
         updateUsernames();
         connections.splice(connections.indexOf(socket), 1);
@@ -34,13 +36,13 @@ io.sockets.on('connection', function(socket) {
     });
 
     // Send Message
-    socket.on('send message', function(data) {
+    socket.on('send message', (data) => {
         console.log(data);
         io.sockets.emit('new message', {msg: data, user: socket.username});
     });
 
     // New User
-    socket.on('new user', function(data, callback) {
+    socket.on('new_user', (data, callback) => {
         callback(true);
         socket.username = data;
         users.push(socket.username);
@@ -52,8 +54,8 @@ io.sockets.on('connection', function(socket) {
     };
 
     // Thor
-    socket.on('add-message', (message) => {
-        console.log('Loop complete', message);
-        io.emit('message', {type:'new-message', text: message});    
+    socket.on('add-message', (data) => {
+        console.log('Transmission received: ', data);
+        io.emit('message', {msg: data});
       });
 });

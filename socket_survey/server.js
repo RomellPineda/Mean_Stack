@@ -5,7 +5,9 @@ var bodyParser = require('body-parser');
 app.use(bodyParser.urlencoded({extended: true}));
 
 app.use(express.static(__dirname + "/public"));
-const server = app.listen(1337);
+const server = app.listen(1337, function() {
+    console.log('/// Standing by on 1337')
+});
 const io = require('socket.io')(server);
 users = [];
 connections = [];
