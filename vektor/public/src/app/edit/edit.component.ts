@@ -29,6 +29,7 @@ errors = [];
   }
 
   submitEdit(){
+    this.errors =[];
     console.log('Course Edit Submission fired');
     this._httpService.updateCourse(this.course).subscribe(data => {
       if(data['errors']){

@@ -32,6 +32,7 @@ export class ReviewComponent implements OnInit {
   }
 
   registerStudent(id: string){
+    this.errors =[];
     this._httpService.addStudent(id, this.student).subscribe(data =>{
       if(data['errors']){
         console.log('Hit error', data['errors']);

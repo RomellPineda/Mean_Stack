@@ -11,19 +11,21 @@ export class ChatService {
 
   constructor() { }
 
-  // sendName(name){
-  //   this.socket.emit('new_user', name);
-  // }
-
-  relayMessage(message: any){
-    this.socket.emit('add-message', message);
+  sendUser(user){
+    this.socket.emit('user', user);
+    console.log('Passed user', user);
   }
 
-  getMessages() {
-    let observable = new Observable(observer => {
+  relayTraffic(message){
+    console.log('Relaying traffic: ', message);
+    this.socket.emit('send-traffic', message);
+  }
+
+  getTraffic() {
+    let observable = new Observable<{msg: string, user: string}>(observer => {
       this.socket = io(this.url);
-      this.socket.on('message', (data) => {
-        observer.next(data);    
+      this.socket.on('traffic', (data) => {
+        observer.next(data);
       });
       return () => {
         this.socket.disconnect();

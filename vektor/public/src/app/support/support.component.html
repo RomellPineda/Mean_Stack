@@ -1,24 +1,61 @@
 <div class="jumbotron text-center">
-  <h1>How can we help you?</h1>
+  <h1>real-time online chat</h1>
+  <p>powered by socket.io</p>
 </div>
 <div class="container">
 
-  <div *ngFor="let message of messages" class="well">
+  <!-- <div *ngFor="let message of messages" class="well">
       <p>{{message.msg}}</p>
-  </div>
+  </div> -->
 
-  <form (submit)="sendMessage()">
+  <form (submit)="sendUser()">
     <div class="form-group">
-      Type your question or comment:
-      <textarea class="form-control" type="text" name="message" [(ngModel)]="message"></textarea>
+      <h4>Please provide your name for online chat support</h4>
+      <input class="form-control" type="text" name="user" [(ngModel)]="user">
     </div>
-
-    <div class="col-sm-12 col-md-6">
-      <input class="btn btn-primary btn-lg btn-block" type="submit" value="Send">
-    </div>
+    
     <div class="col-sm-12 col-md-6">
       <button class="btn btn-secondary btn-lg btn-block" [routerLink]="['/vektor']">Cancel</button>
+    </div>
+    <div class="col-sm-12 col-md-6">
+      <input class="btn btn-primary btn-lg btn-block" type="submit" data-toggle="modal" data-target="#chatModal" value="Send">
     </div>
   </form>
 </div>
 <br>
+
+<div class="modal fade" id="chatModal" tabindex="-1" role="dialog" aria-labelledby="chatModalLongTitle" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 class="modal-title" id="chatModalLongTitle">chat</h2>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close" [routerLink]="['/vektor']">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+
+      <div *ngIf="messages" class="modal-body">
+        <div *ngFor="let message of messages" class="well">
+
+          <!-- if message.user = user in ts background color blue -->
+          <p><strong>{{message.user}}</strong>  {{message.msg}}</p>
+        </div>
+      </div>
+
+      <div class="modal-footer">
+        <form (submit)="sendTraffic()">
+          <div class="form-group">
+            <textarea class="form-control" type="text" name="transmission" [(ngModel)]="transmission" placeholder="Type question or comment"></textarea>
+          </div>
+          
+          <div class="col-sm-12 col-md-6">
+            <button class="btn btn-secondary btn-lg btn-block" data-dismiss="modal" [routerLink]="['/vektor']">Cancel</button>
+          </div>
+          <div class="col-sm-12 col-md-6">
+            <input class="btn btn-primary btn-lg btn-block" type="submit" value="Send">
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,6 +1,8 @@
 #about {
-  font: 400 17px/1.8 Lato, sans-serif;
+  font: 400 17px/2.0 Lato, sans-serif;
   color: #777;
+  padding-left: 50px;
+  padding-right: 50px;
 }
 #vektor {
   color: orange;

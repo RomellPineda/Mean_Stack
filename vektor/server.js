@@ -30,32 +30,21 @@ io.sockets.on('connection', (socket) => {
     // Disconnect
     socket.on('disconnect', (data) => {
         users.splice(users.indexOf(socket.username), 1);
-        updateUsernames();
         connections.splice(connections.indexOf(socket), 1);
         console.log('Disconnected: %s sockets connected', connections.length)
     });
 
-    // Send Message
-    socket.on('send message', (data) => {
-        console.log(data);
-        io.sockets.emit('new message', {msg: data, user: socket.username});
+    // Send traffic
+    socket.on('send-traffic', (data) => {
+        console.log('Transmission received: ', data);
+        io.sockets.emit('traffic', {msg: data, user: socket.username});
     });
 
     // New User
-    socket.on('new_user', (data, callback) => {
-        callback(true);
+    socket.on('user', (data) => {
         socket.username = data;
+        console.log('Got user: ', data);
         users.push(socket.username);
-        updateUsernames();
     });
 
-    function updateUsernames() {
-        io.sockets.emit('get users', users)
-    };
-
-    // Thor
-    socket.on('add-message', (data) => {
-        console.log('Transmission received: ', data);
-        io.emit('message', {msg: data});
-      });
 });

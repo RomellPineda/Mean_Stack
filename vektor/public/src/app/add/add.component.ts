@@ -19,6 +19,7 @@ export class AddComponent implements OnInit {
   }
 
   addNew() {
+    this.errors =[];
     console.log('Initiating new course', this.new);
     this._httpService.newCourse(this.new).subscribe(data => {
       if(data['errors']) {

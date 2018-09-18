@@ -1,6 +1,6 @@
 .container {
     margin-top: 50px;
-    height: 600px;
+    min-height: 800px;
 }
 #btn {
     background-color: rgb(82, 80, 80);

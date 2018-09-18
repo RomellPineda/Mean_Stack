@@ -8,6 +8,7 @@ import { HttpService } from '../http.service';
 })
 export class CoursesComponent implements OnInit {
   courses: any = [];
+  target_id = [];
 
   constructor(private _httpService: HttpService) { }
 
@@ -22,9 +23,16 @@ export class CoursesComponent implements OnInit {
     })
   }
 
-  redactCourse(target: any) {
-    console.log('Delete Function fired ////////', target);
-    this._httpService.abortCourse(target).subscribe(data => {
+  standByToRedact(target: any) {
+    this.target_id = [];
+    console.log('Standing by to redact', target);
+    this.target_id.push(target);
+
+  }
+
+  redactCourse() {
+    console.log('Delete Function fired ////////', this.target_id);
+    this._httpService.abortCourse(this.target_id).subscribe(data => {
       this.getEm();
     })
   }

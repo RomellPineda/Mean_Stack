@@ -28,9 +28,12 @@
             Date:
             <input class="form-control" type="date" name="course.date" [(ngModel)]="course.date">
         </div>
-
-        <input class="btn btn-primary btn-lg" type="submit" value="Submit Edit">
-        <button class="btn btn-link btn-lg" [routerLink]="['/vektor/courses']">Cancel</button>
+        <div class="col-sm-12 col-md-6">
+            <input class="btn btn-primary btn-lg btn-block" type="submit" value="Submit Edit">
+        </div>
+        <div class="col-sm-12 col-md-6">
+            <button class="btn btn-link btn-lg btn-block" [routerLink]="['/vektor/courses']">Cancel</button>
+        </div>
     </form>
 </div>
 <br>

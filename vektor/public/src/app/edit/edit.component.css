@@ -4,3 +4,6 @@
     -webkit-filter: grayscale(97%);
     filter: grayscale(97%);
 }
+.errors {
+    color: red;
+}
