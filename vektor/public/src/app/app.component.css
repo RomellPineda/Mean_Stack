@@ -76,7 +76,9 @@ footer a {
 .form-control {
     border-radius: 0;
 }
-#support_btn {
+
+/* The following is commented out to remove universal functionality of corresponding component to operate in all apps including support component for which #support_btn redirects to */
+/* #support_btn {
     display: none;
     position: fixed;
     bottom: 20px;
@@ -90,4 +92,8 @@ footer a {
     cursor: pointer;
     padding: 10px;
     border-radius: 20px;
+  } */
+  
+  #newsletter {
+      color: black;
   }

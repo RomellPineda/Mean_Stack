@@ -25,10 +25,8 @@
   </div>
 </nav>
 
-<button [routerLink]="['/vektor/support']" id="support_btn"><span class="glyphicon glyphicon-question-sign"></span> Support</button>
-
 <!-- Keep to preserve ability to append content -->
-<router-outlet></router-outlet>
+<router-outlet (activate)="onActivate($event)"></router-outlet>
 
 <footer class="page-footer">
   <div class="container-fluid text-md-left">
@@ -42,16 +40,16 @@
 
         <ul class="list-unstyled">
           <li>
-            <a href="#!">M.O.U.T</a>
+            <a href="/vektor/courses">M.O.U.T</a>
           </li>
           <li>
-            <a href="#!">Logistics</a>
+            <a href="/vektor/courses">Logistics</a>
           </li>
           <li>
-            <a href="#!">Halo</a>
+            <a href="/vektor/courses">Halo</a>
           </li>
           <li>
-            <a href="#!">Fires</a>
+            <a href="/vektor/courses">Fires</a>
           </li>
         </ul>
 
@@ -63,13 +61,13 @@
 
         <ul class="list-unstyled">
           <li>
-            <a href="#!">Franks</a>
+            <a href="/vektor">Franks</a>
           </li>
           <li>
-            <a href="#!">Horner</a>
+            <a href="/vektor">Horner</a>
           </li>
           <li>
-            <a href="#!">Clark</a>
+            <a href="/vektor">Clark</a>
           </li>
         </ul>
 
@@ -77,9 +75,9 @@
 
       <div class="col-md-6 mt-md-0 mt-3 text-center">
 
-        <h5 class="text-uppercase">Footer Content</h5>
-        <p>Here you can use rows and columns here to organize your footer content.</p>
-
+        <h5 class="text-uppercase"><span class="glyphicon glyphicon-envelope envelope"></span> JOIN THE NEWSLETTER</h5>
+        <p>Get the latest news on courses, instructors, and vektor events directly to your inbox</p>
+        <button id="newsletter" [routerLink]="['/vektor/about']">Get the Newsletter</button>
       </div>
 
     </div>

@@ -23,12 +23,11 @@ export class SupportComponent implements OnInit {
 
   sendUser(){
     this._chatService.sendUser(this.user);
-    console.log('Element:', this.user)
+    console.log('Element:', this.user);
   }
 
   sendTraffic(){
     this._chatService.relayTraffic(this.transmission);
-    console.log('Message for ya:', this.transmission)
     this.transmission = '';
   }
 

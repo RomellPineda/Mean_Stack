@@ -4,10 +4,6 @@
 </div>
 <div class="container">
 
-  <!-- <div *ngFor="let message of messages" class="well">
-      <p>{{message.msg}}</p>
-  </div> -->
-
   <form (submit)="sendUser()">
     <div class="form-group">
       <h4>Please provide your name for online chat support</h4>
@@ -37,7 +33,6 @@
       <div *ngIf="messages" class="modal-body">
         <div *ngFor="let message of messages" class="well">
 
-          <!-- if message.user = user in ts background color blue -->
           <p><strong>{{message.user}}</strong>  {{message.msg}}</p>
         </div>
       </div>
