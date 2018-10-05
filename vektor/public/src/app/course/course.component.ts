@@ -16,7 +16,6 @@ export class CourseComponent implements OnInit {
     console.log('Single course spun up');
     this._route.params.subscribe(data => {
       console.log(data);
-      // Is data id neccessary or is it just data since router sent up id???
       this.getACourse(data['id']);
     })
   }

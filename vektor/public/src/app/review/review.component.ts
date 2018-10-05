@@ -37,10 +37,6 @@ export class ReviewComponent implements OnInit {
       if(data['errors']){
         console.log('Hit error', data['errors']);
         for(var err in data['errors']){
-
-          // Clear previous errors
-          // this.errors = [];
-
           this.errors.push(data['errors'][err]['message'])
         }
       }

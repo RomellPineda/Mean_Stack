@@ -24,10 +24,6 @@ export class AddComponent implements OnInit {
     this._httpService.newCourse(this.new).subscribe(data => {
       if(data['errors']) {
         for(var err in data['errors']) {
-
-          // Clear previous errors
-          // this.errors = [];
-
           this.errors.push(data['errors'][err]['message'])
         }
       }
