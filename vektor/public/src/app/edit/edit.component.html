@@ -1,6 +1,7 @@
-<img id="delta" src="assets/images/delta.jpg" class="img-responsive">
+<div class="jumbotron text-center">
+    <h1>edit course</h1>
+</div>
 <div *ngIf="course" class="container">
-    <h3>Edit Course</h3>
     <form (submit)="submitEdit()">
         <p class="errors" *ngFor="let err of errors">{{err}}</p>
 

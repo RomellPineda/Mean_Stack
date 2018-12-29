@@ -1,6 +1,9 @@
-<img id="add" src="assets/images/add.jpeg">
+<div class="jumbotron text-center">
+    <h1>host an engagement</h1>
+    <p>lead event or elect cadre</p>
+</div>
 <div class="container">
-    <h3>Host an engagement</h3>
+    <!-- <h3>Host an engagement</h3> -->
     <form (submit)="addNew()">
         <p class="errors" *ngFor="let err of errors">{{err}}</p>
 
@@ -15,7 +18,7 @@
         </div>
 
         <div class="form-group">
-            Instructor:
+            Lead:
             <input class="form-control" type="text" name="new.instructor" [(ngModel)]="new.instructor">
         </div>
 
